@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OrangeFitness.App.SettingsPage"
+             NavigationPage.HasNavigationBar="False"
+             Title="Настройки">
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- Header: back arrow on the left, title centered -->
+        <Grid Padding="10,8" ColumnDefinitions="56,*,56">
+            <Button Text="←" FontSize="24" Padding="0" WidthRequest="48" HeightRequest="44"
+                    BackgroundColor="Transparent" TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                    Clicked="OnCancelClicked" ToolTipProperties.Text="Назад (без запазване)" />
+            <Label Grid.Column="1" Text="Настройки" FontSize="22" FontAttributes="Bold"
+                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+        </Grid>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20,0,20,10" Spacing="10" MaximumWidthRequest="640">
+
+                <Border Padding="16,12" StrokeThickness="1"
+                        Stroke="{AppThemeBinding Light=#D0D0D0, Dark=#505050}"
+                        StrokeShape="RoundRectangle 8">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Занимание" FontSize="18" FontAttributes="Bold" />
+                        <Label Text="Име на заниманието (както е в графика)" />
+                        <Entry x:Name="ClassNameEntry" />
+                        <Label Text="Час (ЧЧ:ММ, празно = който и да е)" />
+                        <Entry x:Name="ClassTimeEntry" Placeholder="20:00" />
+                        <Label Text="Търси в следващите (дни)" />
+                        <Entry x:Name="SearchDaysEntry" Keyboard="Numeric" />
+                        <HorizontalStackLayout Spacing="8">
+                            <Switch x:Name="TestModeSwitch" VerticalOptions="Center" />
+                            <Label Text="Тестов режим (не изпраща нищо към сайта)" VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Padding="16,12" StrokeThickness="1"
+                        Stroke="{AppThemeBinding Light=#D0D0D0, Dark=#505050}"
+                        StrokeShape="RoundRectangle 8">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Потребители" FontSize="18" FontAttributes="Bold" />
+                        <VerticalStackLayout x:Name="UsersPanel" Spacing="10" />
+                        <Button Text="Добавяне" HorizontalOptions="Start" Clicked="OnAddUserClicked" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Padding="16,12" StrokeThickness="1"
+                        Stroke="{AppThemeBinding Light=#D0D0D0, Dark=#505050}"
+                        StrokeShape="RoundRectangle 8">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Адрес на формата за записване (LuckyFit)" />
+                        <Entry x:Name="FormUrlEntry" FontSize="12" />
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Footer: Отказ on the left, Запази on the right -->
+        <Grid Grid.Row="2" Padding="20,10" ColumnDefinitions="*,*" ColumnSpacing="12" MaximumWidthRequest="640">
+            <Button x:Name="CancelButton" Text="Изход" Clicked="OnCancelClicked" />
+            <Button Grid.Column="1" x:Name="SaveButton" Text="Запази" Clicked="OnSaveClicked" BackgroundColor="#F57C00" TextColor="White"
+                    IsEnabled="False" Opacity="0.4" />
+        </Grid>
+    </Grid>
+</ContentPage>

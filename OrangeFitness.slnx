@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/OrangeFitness.App/OrangeFitness.App.csproj" />
+    <Project Path="src/OrangeFitness.Cli/OrangeFitness.Cli.csproj" />
+    <Project Path="src/OrangeFitness.Core/OrangeFitness.Core.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OrangeFitness.App.MainPage"
+             NavigationPage.HasNavigationBar="False"
+             Title="Orange Fitness – записване">
+    <Grid RowDefinitions="Auto,*">
+
+    <!-- Header: title centered, settings on the right (equal side columns keep the title truly centered) -->
+    <Grid Padding="10,8" ColumnDefinitions="110,*,110">
+        <Label Grid.Column="1" Text="Orange Fitness – записване" FontSize="22" FontAttributes="Bold"
+               HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+        <Button Grid.Column="2" Text="Настройки" Clicked="OnSettingsClicked" HorizontalOptions="End" />
+    </Grid>
+
+    <Grid Grid.Row="1" RowDefinitions="Auto,Auto,Auto,Auto,*" Padding="20,10,20,20" RowSpacing="14" MaximumWidthRequest="640">
+        <Label x:Name="ClassLabel" FontSize="18" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+
+        <VerticalStackLayout Grid.Row="1" x:Name="UsersPanel" Spacing="4" HorizontalOptions="Center" />
+
+        <Label Grid.Row="2" x:Name="TestModeLabel" IsVisible="False" TextColor="DarkOrange" HorizontalTextAlignment="Center"
+               Text="ТЕСТОВ РЕЖИМ – нищо няма да се изпрати (изключва се от Настройки)" />
+
+        <Button Grid.Row="3" x:Name="RegisterButton" Text="Запиши" FontSize="22" HeightRequest="64"
+                BackgroundColor="#F57C00" TextColor="White" CornerRadius="10" Clicked="OnRegisterClicked" />
+
+        <Border Grid.Row="4" Stroke="LightGray" Padding="10">
+            <ScrollView x:Name="LogScroll">
+                <Label x:Name="LogLabel" FontFamily="Consolas" FontSize="13" />
+            </ScrollView>
+        </Border>
+    </Grid>
+    </Grid>
+</ContentPage>

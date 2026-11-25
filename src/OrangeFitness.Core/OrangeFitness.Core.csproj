@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!-- Local default settings (repo root, git-ignored). Embedded into the assembly so every host
+       (Windows, Android, CLI) gets them without copying files around. Structure: appsettings.example.json. -->
+  <PropertyGroup>
+    <LocalDefaultsFile>$(MSBuildThisFileDirectory)..\..\appsettings.local.json</LocalDefaultsFile>
+  </PropertyGroup>
+  <ItemGroup Condition="Exists('$(LocalDefaultsFile)')">
+    <EmbeddedResource Include="$(LocalDefaultsFile)" LogicalName="appsettings.local.json" Link="appsettings.local.json" />
+  </ItemGroup>
+
+</Project>

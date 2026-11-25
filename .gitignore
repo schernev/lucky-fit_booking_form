@@ -1,0 +1,8 @@
+bin/
+obj/
+.vs/
+*.user
+publish/
+settings.json
+# Local default settings (structure: appsettings.example.json)
+appsettings.local.json
