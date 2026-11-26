@@ -66,6 +66,7 @@ public partial class MainPage : ContentPage
 
         RegisterButton.IsEnabled = false;
         LogLabel.Text = "";
+        LogBorder.IsVisible = true;
         try
         {
             var service = new BookingService(_settings, Log);
